@@ -1,12 +1,11 @@
 
-import { useState, useRef  } from 'react'
+import { useContext, useState, useRef  } from 'react'
 import { useLogin } from '../Hooks/useLogin'
 import { AuthContext } from '../Context/AuthContext'
-import { useContext } from 'react'
 
 export default function Login() {
 
-    // 3. Consumir el contexto
+  
     const { setUser } = useContext(AuthContext)
     
     const emailRef = useRef()
@@ -19,17 +18,18 @@ export default function Login() {
    
 
     const handleLogin = () => {
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
-        const isSuccess = login(email, password);
+        const email = emailRef.current.value
+        const password = passwordRef.current.value
+        const isSuccess = login(email, password)
         if(!isSuccess)   
         {
             setError("Credenciales incorrectas");
         }
         else
         {
-            alert("Bienvenido" + email)    
-            setUser(email)        
+            setUser({email}); 
+            alert("Bienvenido" + email); 
+                   
         }
     }
 

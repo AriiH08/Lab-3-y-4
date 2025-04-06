@@ -1,8 +1,7 @@
 
 
 // 1. Create a new context
-import { createContext } from 'react'
-import { useState } from 'react'
+import { useState, createContext } from 'react'
 
 export const AuthContext = createContext()
 
